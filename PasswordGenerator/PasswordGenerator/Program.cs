@@ -3,6 +3,7 @@
     internal class Program
     {
         static readonly Random Random = new Random();
+
         static void Main(string[] args)
         {
             if (!IsValid(args))
@@ -17,7 +18,6 @@
             }
 
             var pattern = args[1];
-            var patternLength = pattern.Length;
             var lengthArg = Convert.ToInt32(args[0]);
 
             while (pattern.Length < lengthArg)
@@ -25,16 +25,16 @@
                 pattern += 'l';
             }
 
-            while (patternLength > 1)
+            while (pattern.Length > 1)
             {
-                foreach (var c in pattern)
-                {
-                    if (c == 'L') WriteRandomUpperCaseLetter();
-                    if (c == 'l') WriteRandomLowerCaseLetter();
-                    if (c == 'd') WriteRandomDigit();
-                    if (c == 's') WriteRandomSpecialCharacter();
-                    patternLength--;
-                }
+                var randomNumb = Random.Next(0, pattern.Length);
+                var removedChar = pattern[randomNumb];
+                pattern = pattern.Remove(randomNumb, 1);
+
+                if (removedChar == 'L') WriteRandomUpperCaseLetter();
+                else if (removedChar == 'l') WriteRandomLowerCaseLetter();
+                else if (removedChar == 'd') WriteRandomDigit();
+                else if (removedChar == 's') WriteRandomSpecialCharacter();
             }
 
             void WriteRandomUpperCaseLetter()
@@ -54,7 +54,8 @@
 
             void WriteRandomSpecialCharacter()
             {
-                Console.WriteLine('!');
+                var specialChars = "!#&()=?{}[]";
+                Console.WriteLine(Random.Next(0, 10));
             }
         }
 
