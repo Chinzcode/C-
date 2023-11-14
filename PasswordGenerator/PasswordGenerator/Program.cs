@@ -21,6 +21,9 @@
             }
 
             ShowArgsApprovedText();
+
+            string pattern = Console.ReadLine() ?? string.Empty;
+
         }
 
         static bool IsValid(string[] args)
@@ -29,16 +32,9 @@
 
             if (args.Length != 2) return false;
 
-            foreach (var c1 in args[0])
-            {
-                if (!char.IsDigit(c1)) return false;
+            foreach (var c1 in args[0]) if (!char.IsDigit(c1)) return false;
 
-            }
-
-            foreach (var c2 in args[1])
-            {
-                if (!charOptions.Contains(c2)) return false;
-            }
+            foreach (var c2 in args[1]) if (!charOptions.Contains(c2)) return false;
 
             return true;
         }
