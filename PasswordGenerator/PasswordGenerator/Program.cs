@@ -17,7 +17,7 @@
                 Console.WriteLine("PasswordGenerator  \r\nOptions:\r\n- l = liten bokstav\r\n- L = stor bokstav\r\n- d = siffer\r\n- s = spesialtegn (!\"#\u00a4%&/(){}[]\r\nEksempel: PasswordGenerator 14 lLssdd\r\n    betyr\r\n        Min. 1 liten bokstav\r\n        Min. 1 1 stor bokstav\r\n        Min. 2 spesialtegn\r\n        Min. 2 sifre\r\n        Lengde på passordet skal være 14");
             }
 
-            GenerateRandomPattern(args);
+            Console.WriteLine(ReturnGeneratedPassword(args));
         }
         static bool IsValid(string[] args)
         {
@@ -32,53 +32,36 @@
             return true;
         }
 
-        private static void GenerateRandomPattern(string[] args)
+        private static string ReturnGeneratedPassword(string[] args)
         {
-            var pattern = args[1];
-            var lengthArg = Convert.ToInt32(args[0]);
-
-            while (pattern.Length < lengthArg)
-            {
-                pattern += 'l';
-            }
+            var length = Convert.ToInt32(args[0]);
+            var pattern = args[1].PadRight(length, 'l');
+            var specialChars = "!#&()=?{}[]";
+            var password = "";
 
             while (pattern.Length > 0)
             {
-                var randomNumb = Random.Next(0, pattern.Length);
+                var randomNumb = Random.Next(0, pattern.Length-1);
                 var removedChar = pattern[randomNumb];
                 pattern = pattern.Remove(randomNumb, 1);
 
-                if (removedChar == 'L') WriteRandomUpperCaseLetter();
-                else if (removedChar == 'l') WriteRandomLowerCaseLetter();
-                else if (removedChar == 'd') WriteRandomDigit();
-                else if (removedChar == 's') WriteRandomSpecialCharacter();
+                if (removedChar == 'L') password += WriteRandomUpperCaseLetter();
+                else if (removedChar == 'l') password += WriteRandomLowerCaseLetter();
+                else if (removedChar == 'd') password += WriteRandomDigit();
+                else if (removedChar == 's') password += WriteRandomSpecialCharacter();
             }
 
-            void WriteRandomUpperCaseLetter()
-            {
-                Console.WriteLine(GetRandomLetter('A', 'Z'));
-            }
+            char WriteRandomUpperCaseLetter() => GetRandomLetter('A', 'Z');
 
-            void WriteRandomLowerCaseLetter()
-            {
-                Console.WriteLine(GetRandomLetter('a', 'z'));
-            }
+            char WriteRandomLowerCaseLetter() => GetRandomLetter('a', 'z');
 
-            void WriteRandomDigit()
-            {
-                Console.WriteLine(Random.Next(1, 20));
-            }
+            int WriteRandomDigit() => Random.Next(1, 20);
 
-            void WriteRandomSpecialCharacter()
-            {
-                var specialChars = "!#&()=?{}[]";
-                Console.WriteLine(specialChars[Random.Next(0, specialChars.Length-1)]);
-            }
+            char WriteRandomSpecialCharacter() => specialChars[Random.Next(0, specialChars.Length - 1)];
+
+            return password;
         }
 
-        static char GetRandomLetter(char min, char max)
-        {
-            return (char)Random.Next(min, max);
-        }
+        static char GetRandomLetter(char min, char max) => (char)Random.Next(min, max);
     }
 }
