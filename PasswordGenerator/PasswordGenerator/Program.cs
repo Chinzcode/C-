@@ -25,9 +25,9 @@
 
             if (args.Length != 2) return false;
 
-            foreach (var c1 in args[0]) if (!char.IsDigit(c1)) return false;
+            foreach (var digit in args[0]) if (!char.IsDigit(digit)) return false;
 
-            foreach (var c2 in args[1]) if (!charOptions.Contains(c2)) return false;
+            foreach (var letter in args[1]) if (!charOptions.Contains(letter)) return false;
 
             return true;
         }
@@ -72,7 +72,7 @@
             void WriteRandomSpecialCharacter()
             {
                 var specialChars = "!#&()=?{}[]";
-                Console.WriteLine(specialChars[Random.Next(0, 10)]);
+                Console.WriteLine(specialChars[Random.Next(0, specialChars.Length-1)]);
             }
         }
 
