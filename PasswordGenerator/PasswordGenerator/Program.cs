@@ -41,7 +41,7 @@
 
             while (pattern.Length > 0)
             {
-                var randomNumb = Random.Next(0, pattern.Length-1);
+                var randomNumb = Random.Next(0, pattern.Length - 1);
                 var removedChar = pattern[randomNumb];
                 pattern = pattern.Remove(randomNumb, 1);
 
@@ -55,7 +55,7 @@
 
             char WriteRandomLowerCaseLetter() => GetRandomLetter('a', 'z');
 
-            int WriteRandomDigit() => Random.Next(1, 20);
+            int WriteRandomDigit() => Random.Next(0, 9);
 
             char WriteRandomSpecialCharacter() => specialChars[Random.Next(0, specialChars.Length - 1)];
 
