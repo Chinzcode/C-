@@ -2,7 +2,7 @@
 {
     internal class ReturnArray
     {
-        public static string[] getArrayOfString()
+        public static string[] getArrayOfString(int min, int max)
         {
             var list = new List<string>();
             string lastWord = null;
@@ -17,7 +17,12 @@
 
                     if (word != lastWord)
                     {
-                        list.Add(word);
+                        if (word.Length >= min 
+                            && word.Length <= max
+                            && !word.Contains("-"))
+                        {
+                            list.Add(word);
+                        }
                         lastWord = word;
                     }
                 }

@@ -7,7 +7,7 @@
 
         static void Main(string[] args)
         {
-            var strArr = ReturnArray.getArrayOfString();
+            var strArr = ReturnArray.getArrayOfString(7, 10);
             foreach (var element in strArr)
             {
                 Console.WriteLine(element);
