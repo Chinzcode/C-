@@ -2,14 +2,14 @@
 {
     internal class ReturnArray
     {
-        public static string[] getArrayOfString(int min, int max)
+        public static string[] GetArrayOfString(int min, int max)
         {
             var list = new List<string>();
             string lastWord = null;
 
-            for (var i = 0; i < Program.strArray.Length / 10; i++)
+            for (var i = 0; i < Program.fileArray.Length; i++)
             {
-                string[] parts = Program.strArray[i].Split('\t');
+                string[] parts = Program.fileArray[i].Split('\t');
 
                 if (parts.Length > 0)
                 {
@@ -31,3 +31,22 @@
         }
     }
 }
+
+
+//string lastWord = null;
+
+//for (var i = 0; i < strArray.Length; i++)
+//{
+//    string[] parts = strArray[i].Split('\t');
+
+//    if (parts.Length > 0)
+//    {
+//        var word = parts[1];
+
+//        if (word != lastWord)
+//        {
+//            Console.WriteLine(word);
+//            lastWord = word;
+//        }
+//    }
+//}
