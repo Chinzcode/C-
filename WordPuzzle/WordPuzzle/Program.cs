@@ -2,27 +2,34 @@
 {
     internal class Program
     {
+        static string filename = "Dictionary.txt";
+        public static string[] strArray = File.ReadAllLines(filename);
+
         static void Main(string[] args)
         {
-            var filename = "Dictionary.txt";
-            string[] textArray = File.ReadAllLines(filename);
-            string lastWord = null;
-
-            for (var i = 0; i < textArray.Length/10; i++)
+            var strArr = ReturnArray.getArrayOfString();
+            foreach (var element in strArr)
             {
-                string[] parts = textArray[i].Split('\t');
-
-                if (parts.Length > 0)
-                {
-                    var word = parts[1];
-
-                    if (word != lastWord)
-                    {
-                        Console.WriteLine(word);
-                        lastWord = word;
-                    }
-                }
+                Console.WriteLine(element);
             }
         }
     }
 }
+
+//string lastWord = null;
+
+//for (var i = 0; i < strArray.Length; i++)
+//{
+//    string[] parts = strArray[i].Split('\t');
+
+//    if (parts.Length > 0)
+//    {
+//        var word = parts[1];
+
+//        if (word != lastWord)
+//        {
+//            Console.WriteLine(word);
+//            lastWord = word;
+//        }
+//    }
+//}
