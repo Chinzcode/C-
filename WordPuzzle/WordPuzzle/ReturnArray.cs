@@ -31,22 +31,3 @@
         }
     }
 }
-
-
-//string lastWord = null;
-
-//for (var i = 0; i < strArray.Length; i++)
-//{
-//    string[] parts = strArray[i].Split('\t');
-
-//    if (parts.Length > 0)
-//    {
-//        var word = parts[1];
-
-//        if (word != lastWord)
-//        {
-//            Console.WriteLine(word);
-//            lastWord = word;
-//        }
-//    }
-//}

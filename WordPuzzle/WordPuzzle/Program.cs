@@ -8,12 +8,15 @@
         static void Main(string[] args)
         {
             string[] strArray = ReturnArray.GetArrayOfString(7, 10);
-            //var randomWord = GetRandomWord(strArray).ToLower();
-            var randomWord = "abonnere";
+            var randomWord = GetRandomWord(strArray).ToLower();
 
             var lastThreeChars = getLastCharsInString(randomWord, 3);
             var lastFourChars = getLastCharsInString(randomWord, 4);
             var lastFiveChars = getLastCharsInString(randomWord, 5);
+
+            var threeCharList = new List<string>();
+            var FourCharList = new List<string>();
+            var FiveCharList = new List<string>();
 
             Console.WriteLine("randomWord = " + randomWord);
 
@@ -21,21 +24,42 @@
             {
                 if (string.Equals(element.Substring(0, 3), lastThreeChars))
                 {
-                    Console.WriteLine("element = " + element);
-                    Console.WriteLine("first 3 match");
+                    threeCharList.Add(element);
                 }
                 else if (string.Equals(element.Substring(0, 4), lastFourChars))
                 {
-                    Console.WriteLine("element = " + element);
-                    Console.WriteLine("first 4 match");
+                    FourCharList.Add(element);
                 }
                 else if (string.Equals(element.Substring(0, 5), lastFiveChars))
                 {
-                    Console.WriteLine("element = " + element);
-                    Console.WriteLine("first 5 match");
+                    FiveCharList.Add(element);
                 }
             }
 
+            if (threeCharList.Count > 0)
+            {
+                Console.WriteLine("First match = 3 Chars");
+                foreach (var element in threeCharList)
+                {
+                    Console.WriteLine(element);
+                }
+            } 
+            else if (FourCharList.Count > 0)
+            {
+                Console.WriteLine("First match = 4 Chars");
+                foreach (var element in FourCharList)
+                {
+                    Console.WriteLine(element);
+                }
+            } 
+            else if (FiveCharList.Count > 0)
+            {
+                Console.WriteLine("First match = 5 Chars");
+                foreach (var element in FiveCharList)
+                {
+                    Console.WriteLine(element);
+                }
+            }
         }
 
         static string getLastCharsInString(string randomWord, int length)
