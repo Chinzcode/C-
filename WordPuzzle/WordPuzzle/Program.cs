@@ -2,75 +2,47 @@
 {
     internal class Program
     {
-        static string filename = "Dictionary.txt";
-        public static string[] fileArray = File.ReadAllLines(filename);
+        public static string _filename = "Dictionary.txt";
+        public static string[] _fileArray = File.ReadAllLines(_filename);
 
         static void Main(string[] args)
         {
-            string[] strArray = ReturnArray.GetArrayOfString(7, 10);
-            var randomWord = GetRandomWord(strArray).ToLower();
+            string[] strArray = ReturnArray.ReturnArrayOfString(7, 10);
+            var randomWord = ReturnRandomWord(strArray).ToLower();
 
-            var lastThreeChars = getLastCharsInString(randomWord, 3);
-            var lastFourChars = getLastCharsInString(randomWord, 4);
-            var lastFiveChars = getLastCharsInString(randomWord, 5);
+            var lastThreeChars = ReturnLastCharsInString(randomWord, 3);
+            var lastFourChars = ReturnLastCharsInString(randomWord, 4);
+            var lastFiveChars = ReturnLastCharsInString(randomWord, 5);
 
             var threeCharList = new List<string>();
-            var FourCharList = new List<string>();
-            var FiveCharList = new List<string>();
-
-            Console.WriteLine("randomWord = " + randomWord);
+            var fourCharList = new List<string>();
+            var fiveCharList = new List<string>();
 
             foreach (var element in strArray)
             {
-                if (string.Equals(element.Substring(0, 3), lastThreeChars))
-                {
-                    threeCharList.Add(element);
-                }
-                else if (string.Equals(element.Substring(0, 4), lastFourChars))
-                {
-                    FourCharList.Add(element);
-                }
-                else if (string.Equals(element.Substring(0, 5), lastFiveChars))
-                {
-                    FiveCharList.Add(element);
-                }
+                if (string.Equals(element.Substring(0, 3), lastThreeChars)) threeCharList.Add(element);
+                else if (string.Equals(element.Substring(0, 4), lastFourChars)) fourCharList.Add(element);
+                else if (string.Equals(element.Substring(0, 5), lastFiveChars)) fiveCharList.Add(element);
             }
-
-            if (threeCharList.Count > 0)
-            {
-                Console.WriteLine("First match = 3 Chars");
-                foreach (var element in threeCharList)
-                {
-                    Console.WriteLine(element);
-                }
-            } 
-            else if (FourCharList.Count > 0)
-            {
-                Console.WriteLine("First match = 4 Chars");
-                foreach (var element in FourCharList)
-                {
-                    Console.WriteLine(element);
-                }
-            } 
-            else if (FiveCharList.Count > 0)
-            {
-                Console.WriteLine("First match = 5 Chars");
-                foreach (var element in FiveCharList)
-                {
-                    Console.WriteLine(element);
-                }
-            }
+            PrintWordList(threeCharList, fourCharList, fiveCharList);
         }
 
-        static string getLastCharsInString(string randomWord, int length)
+        private static void PrintWordList(List<string> threeCharList, List<string> fourCharList, List<string> fiveCharList)
+        {
+            if (threeCharList.Count > 0) foreach (var element in threeCharList) Console.WriteLine(element);
+            else if (fourCharList.Count > 0) foreach (var element in fourCharList) Console.WriteLine(element);
+            else if (fiveCharList.Count > 0) foreach (var element in fiveCharList) Console.WriteLine(element);
+        }
+
+        private static string ReturnLastCharsInString(string randomWord, int length)
         {
             return randomWord.Substring(randomWord.Length - length);
         }
 
-        static string GetRandomWord(string[] strArray)
+        private static string ReturnRandomWord(string[] strArray)
         {
             var random = new Random();
-            var randomNum = random.Next(1, strArray.Length-1);
+            var randomNum = random.Next(0, strArray.Length);
             return strArray[randomNum];
         }
     }

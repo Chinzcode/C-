@@ -2,14 +2,14 @@
 {
     internal class ReturnArray
     {
-        public static string[] GetArrayOfString(int min, int max)
+        public static string[] ReturnArrayOfString(int min, int max)
         {
             var list = new List<string>();
             string lastWord = null;
 
-            for (var i = 0; i < Program.fileArray.Length; i++)
+            for (var i = 0; i < Program._filename.Length; i++)
             {
-                string[] parts = Program.fileArray[i].Split('\t');
+                string[] parts = Program._fileArray[i].Split('\t');
 
                 if (parts.Length > 0)
                 {
