@@ -1,0 +1,9 @@
+Videregående OO
+
+- Introduksjon til interface
+- Oppgaver interface
+- Single Responsibility Principle
+- Dependency Inversion Principle
+- Introduksjon til arv
+- Oppgaver arv
+- Rike brukergrensesnitt med WPF
