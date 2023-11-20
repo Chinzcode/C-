@@ -1,0 +1,12 @@
+Grunnleggende OO og C#
+
+- Intro til klasser
+- Innkapsling
+- Oppgaver
+- Objektorientert analyse og design
+- Fleksibel liste og generics
+- List og LINQ
+- Rike brukergrensesnitt med WPF
+- Enhetstesting
+- Flere oppgaver
+
