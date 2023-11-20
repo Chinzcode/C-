@@ -1,0 +1,17 @@
+Fra JS til C#
+
+- Introduksjon til C# og Visual Studio
+- Sterk typing og mer om C#
+- Overloads og default parameter value
+- Arrays
+- Oppgaver
+- Lese fra fil og skrive til fil
+- Exceptions
+- Casting, Parse og enum
+
+Oppgaver:
+
+315A - SecretNumberGuesser
+315I - PasswordGenerator
+316A - WordPuzzle
+
