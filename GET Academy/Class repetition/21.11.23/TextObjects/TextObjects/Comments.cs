@@ -19,8 +19,7 @@ var myText1 = new TextEffects()
     IsInverted = false,
     Case = Case.Default,
 }; 
-*/
-/*
+
 var myText2 = new TextEffects()
 {
     Text = "BBB",
@@ -30,8 +29,7 @@ var myText2 = new TextEffects()
     IsInverted = false,
     Case = Case.Upper,
 }; 
-*/
-/*
+
 var myText3 = new TextEffects()
 {
     Text = "C",

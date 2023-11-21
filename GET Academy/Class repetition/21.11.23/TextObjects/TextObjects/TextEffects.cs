@@ -5,7 +5,7 @@
         public string Text;
         public ConsoleColor Color;
         public int Col;
-        public int Rows;
+        public int Row;
         public bool IsInverted;
         public Case Case;
     }
