@@ -1,0 +1,17 @@
+En tekst på skjermen
+     - Posisjon
+     - Farge
+     - Invertert
+     - Flytte 
+     - Store eller små bokstaver
+
+    1. Hvordan ville vi modellert dette i JavaScript?
+    2. Hvordan oversetter vi det til C#?
+        - Hva med objekter inne i objekter?
+    3. Tegne opp
+    4. Flytte logikk
+        - funksjoner inne i en klasse (metoder)
+        - constructor
+    5. Fleksibel liste
+    6. Lese fra og skrive til JSON-fil
+    7. Static vs ikke-static
