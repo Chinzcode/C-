@@ -1,5 +1,5 @@
 ﻿/*
-    - Klassevariabel om det var static.
+    - Static = Klassevariabel
         - En verdi for alle personer, alle personer ville hatt samme navn.
  */
 namespace IntroToClassesFromJS
