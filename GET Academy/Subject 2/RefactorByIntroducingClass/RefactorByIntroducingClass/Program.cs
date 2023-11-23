@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             var counter = new CharCounter();
-            string text = "something";
+            string text = "Something!";
 
             while (!string.IsNullOrWhiteSpace(text))
             {

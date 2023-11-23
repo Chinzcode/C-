@@ -3,10 +3,10 @@
     internal class CharCounter
     {
         private int[] counts;
+        private const int range = 250;
 
         public CharCounter()
         {
-            var range = 250;
             counts = new int[range];
         }
 
@@ -20,7 +20,7 @@
 
         public void ShowCounts()
         {
-            for (var i = 0; i < counts.Length; i++)
+            for (var i = 0; i < range; i++)
             {
                 if (counts[i] > 0)
                 {
