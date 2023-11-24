@@ -3,7 +3,7 @@
 ShowTips();
 var bet = Console.ReadLine() ?? string.Empty;
 var match = new Match(bet);
-while (match.IsOngoing)
+while (match.isOngoing)
 {
     ShowCommands();
     var command = Console.ReadLine();

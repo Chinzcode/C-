@@ -4,37 +4,37 @@ namespace FootballBetting
 {
     internal class Match
     {
-        private int _homeGoals;
-        private int _awayGoals;
-        private readonly string _bet;
-        public bool IsOngoing { get; private set; }
+        private int homeGoals;
+        private int awayGoals;
+        private readonly string bet;
+        public bool isOngoing { get; private set; }
 
         public Match(string bet)
         {
-            _bet = bet;
-            IsOngoing = true;
+            this.bet = bet;
+            this.isOngoing = true;
         }
 
         public void AddGoal(bool isHomeTeam)
         {
-            if (isHomeTeam) _homeGoals++;
-            else _awayGoals++;
+            if (isHomeTeam) this.homeGoals++;
+            else this.awayGoals++;
         }
 
         public bool IsBetCorrect()
         {
-            var result = _homeGoals == _awayGoals ? "U" : _homeGoals > _awayGoals ? "H" : "B";
-            return _bet.Contains(result);
+            var result = this.homeGoals == this.awayGoals ? "U" : this.homeGoals > this.awayGoals ? "H" : "B";
+            return this.bet.Contains(result);
         }
 
         public void Stop()
         {
-            IsOngoing = false;
+            this.isOngoing = false;
         }
 
         public string GetScore()
         {
-            return _homeGoals + "-" + _awayGoals;
+            return this.homeGoals + "-" + this.awayGoals;
         }
     }
 }
