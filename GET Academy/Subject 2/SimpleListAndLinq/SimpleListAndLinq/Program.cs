@@ -24,3 +24,36 @@ var people = new List<Person>
         3456
     )
 };
+
+// FirstOrDefault - første som...
+
+var firstPersonInList = people.FirstOrDefault();
+var personWhoIsBornBefore1991 = people.FirstOrDefault(p => p.BirthDay.Year < 1991); // per
+var personWhoIsBornBefore1981 = people.FirstOrDefault(p => p.BirthDay.Year < 1981); // null
+
+// SingleOrDefault - den ene som...
+
+var personWithId2 = people.SingleOrDefault(p => p.Id == 2); // pål
+var personWithId20 = people.SingleOrDefault(p => p.Id == 20); // null
+
+// Where (tilsvarer filter i Javascript)
+
+var peopleWithFirstNameWithLetterE = 
+    people.Where(p => p.FirstName.ToLower().Contains("e"))
+        .ToList();
+
+// Select (tilsvarer map i Javascript)
+
+var firstNames = people.Select(p => p.FirstName).ToList();
+
+// Select og Where
+
+var firstNamesOfPeopleBornBefore1992 = people
+    .Where(p => p.BirthDay.Year < 1992)
+    .Select(p => p.FirstName)
+    .ToList();
+//.ToArray();
+
+// Sum, Min, Max, Average
+
+var sumOfPeopleAges =  people.Select(p => p.Age).Sum(); //.Min(); .Max(); .Average();
