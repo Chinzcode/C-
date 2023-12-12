@@ -1,27 +1,25 @@
 ﻿namespace MyFlexibleList
 {
-    internal class FlexibleList
+    internal class FlexibleList<T>
     {
-        private int[] _numbers = new int[4];
+        private T[] _values = new T[4];
         private int _count = 0;
 
-        public void AddNumber(int number)
+        public void Add(T value)
         {
-            if (_count >= _numbers.Length)
+            if (_count >= _values.Length)
             {
-                var newNumbers = new int[_numbers.Length*2];
-                Array.Copy(_numbers, newNumbers, _numbers.Length);
-                Console.WriteLine($"Dobler kapasitet fra {_numbers.Length} til {newNumbers.Length}");
-                _numbers = newNumbers;
+                var newNumbers = new T[_values.Length*2];
+                Array.Copy(_values, newNumbers, _values.Length);
+                _values = newNumbers;
             }
-
-            _numbers[ _count ] = number;
+            _values[_count] = value;
             _count++;
         }
 
         public string GetValues()
         {
-            return string.Join(",", _numbers);
+            return string.Join(",", _values);
         }
     }
 }
