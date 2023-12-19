@@ -2,9 +2,9 @@
 
 var balls = new Ball[]
 {
-    new Ball(15, 3, 1, 1, BallType.BouncingInWalls),
-    new Ball(15, 5, -1, 1, BallType.Teleporting),
-    new Ball(15, 7, 1, 1, BallType.BouncingWithGravity),
+    new BouncingBall(15, 3, 1, 1),
+    new TeleportingBall(15, 5, -1, 1),
+    new BouncingGravityBall(15, 7, 1, 1)
 };
 Console.CursorVisible = false;
 while (true)
