@@ -7,18 +7,13 @@
         {
         }
 
-        public override void Show(bool changeColor)
+        protected override void SetColor()
         {
-            if (changeColor)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-            }
-            base.Show();
+            Console.ForegroundColor = ConsoleColor.Green;
         }
 
-        public override void Move()
+        protected override void UpdateSpeedAndPosition()
         {
-            base.Move();
             if (_col < 0 || _col > Console.WindowWidth - 1) _col = (_col + Console.WindowWidth) % Console.WindowWidth;
             if (_row < 0 || _row > Console.WindowHeight - 1) _row = (_row + Console.WindowHeight) % Console.WindowHeight;
         }

@@ -7,15 +7,14 @@
         {
         }
 
-        public override void Show(bool changeColor = true)
+        protected override void SetColor()
         {
             Console.ForegroundColor = ConsoleColor.Blue;
-            base.Show(false);
         }
 
-        public override void Move()
+        protected override void UpdateSpeedAndPosition()
         {
-            base.Move();
+            base.UpdateSpeedAndPosition();
             _speedRow += 0.3f;
             if (_row > Console.WindowHeight - 1) _row = Console.WindowHeight - 1;
         }
