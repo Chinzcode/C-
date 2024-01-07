@@ -1,0 +1,34 @@
+﻿Oppgavetekst:
+
+1. Lag en klasse StudentStatus som kan holde rede på statusen til en søker/student.
+
+2. Den skal ha en metode eller property for å hente ut nåværende status. 
+Når man oppretter et objekt skal statusen være “Har søkt”.
+
+3. Lag en metode for å bytte til en ny status som metoden får som parameter. 
+Byttet skal bare gjennomføres om det er lov i henhold til figuren over. 
+Det er bare lov om det er en pil fra eksisterende status til den nye statusen som settes.
+
+4. Objekter av denne klassen skal ikke kunne endre status utenom via denne metoden.
+
+5. Lag en metode til som tar en status som parameter og returnerer true 
+eller false ut fra om objektet tidligere har hatt statusen i parameteren eller ikke.
+
+
+EGET NOTAT UTIFRA OPPGAVE BILDE SOM ILLUSTRERER LOVLIGE BYTTER MELLOM STATUS UNDER:
+
+Lovlige trekk (|| = eller)
+
+1. "Har søkt" -> "Levert dokumentasjon"    || "Ikke levert dokumentasjon"
+
+2. "Levert dokumentasjon" -> "Fått tilbud" || "Fått avslag"
+
+3. "Fått tilbud" -> "Signert kontrakt"     || "Takket nei"
+
+4. "Signert kontrakt" -> "Startet"         || "Angret/ikke møtt"
+
+Hvis "Ikke levert dokumentasjon" || "Fått avslag" || "Takket nei"|| "Angret/ikke møtt" Har blitt valgt. Skal status bli satt til -> "Ikke startet"
+
+5. "Startet" -> "Fullført og bestått" || "Fullført, ikke bestått" || "Brutt"
+
+6. "Fullført, ikke bestått" -> "Fullført og bestått" || "Ikke bestått - ikke flere forsøk igjen"
